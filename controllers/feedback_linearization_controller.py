@@ -12,7 +12,14 @@ class FeedbackLinearizationController(Controller):
         Please implement the feedback linearization using self.model (which you have to implement also),
         robot state x and desired control v.
         """
-        v = q_r_ddot
+        # v = q_r_ddot
+
+        # PD feedback controller
+        K_p = 0.02
+        K_d = 0.2
+        q_dot = x[2:4]
+        q = x[0:2]
+        v = q_r_ddot + K_d * (q_dot - q_r_dot) + K_p * (q - q_r)
 
         M = self.model.M(x)
         C = self.model.C(x)
