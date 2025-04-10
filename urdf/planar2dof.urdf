@@ -10,8 +10,8 @@
   <link name="planar2dof/base_link">
     <inertial>
       <origin rpy="0 0 0" xyz="0.0 0.0 0.0" />
-      <mass value="1" />
-      <inertia ixx="0.01474" ixy="0.00000" ixz="0.00000" iyy="0.01474" iyz="0.00000" izz="0.00281" />
+      <mass value="3" />
+      <inertia ixx="0.04422" ixy="0.00000" ixz="0.00000" iyy="0.04422" iyz="0.00000" izz="0.00844" />
     </inertial>
     <visual>
       <geometry>
@@ -86,8 +86,8 @@
   <link name="planar2dof/link_striker_ee">
     <inertial>
       <origin rpy="0 1.570796326790 0" xyz="0.0 0.0 0.0" />
-      <mass value="5" />
-      <inertia ixx="0.00500" ixy="0.00000" ixz="0.00000" iyy="0.00500" iyz="0.00000" izz="0.00500" />
+      <mass value="0.8" />
+      <inertia ixx="0.00080" ixy="0.00000" ixz="0.00000" iyy="0.00080" iyz="0.00000" izz="0.00080" />
     </inertial>
     <visual>
       <geometry>
