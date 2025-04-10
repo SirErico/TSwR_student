@@ -9,12 +9,12 @@ if __name__ == "__main__":
         type = ''
         dims = {}
         inertial = link.find("inertial")
-        if inertial:
+        if inertial is not None:
             m = float(inertial.find("mass").attrib['value'])
         visual = link.find("visual")
-        if visual:
+        if visual is not None:
             geometry = visual.find("geometry")
-            if geometry:
+            if geometry is not None:
                 type = geometry[0].tag
                 dims = {k: float(v) for k, v in geometry[0].attrib.items()}
 
