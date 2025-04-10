@@ -11,7 +11,7 @@ from utils.simulation import simulate
 
 Tp = 0.01
 start = 0
-end = 5
+end = 5.
 
 """
 Switch to FeedbackLinearizationController as soon as you implement it
@@ -23,8 +23,8 @@ controller = FeedbackLinearizationController(Tp)
 Here you have some trajectory generators. You can use them to check your implementations.
 At the end implement Point2point trajectory generator to move your manipulator to some desired state.
 """
-# traj_gen = ConstantTorque(np.array([0., 1.0])[:, np.newaxis])
-# traj_gen = Sinusoidal(np.array([0., 1.]), np.array([2., 2.]), np.array([0., 0.]))
+#traj_gen = ConstantTorque(np.array([0., 1.0])[:, np.newaxis])
+#traj_gen = Sinusoidal(np.array([0., 1.]), np.array([2., 2.]), np.array([0., 0.]))
 traj_gen = Poly3(np.array([0., 0.]), np.array([math.pi/4, math.pi/6]), end)
 
 
