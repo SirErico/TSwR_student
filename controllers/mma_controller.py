@@ -51,7 +51,7 @@ class MMAController(Controller):
         q = x[:2]
         q_dot = x[2:]
         #v = q_r_ddot
-        v = q_r_ddot - self.K_d * (q_dot - q_r_dot) - self.K_p * (q - q_r)# TODO: add feedback
+        v = q_r_ddot - self.K_d * (q_dot - q_r_dot) - self.K_p * (q - q_r)
         M = self.models[self.i].M(x)
         C = self.models[self.i].C(x)
         u = M.dot(v) + C.dot(q_dot)
