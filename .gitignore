@@ -2,3 +2,4 @@ models/__pycache__/manipulator_model.cpython-310.pyc
 *.pyc
 __pycache__
 controllers/__pycache__/controller.cpython-310.pyc
+.venv/
