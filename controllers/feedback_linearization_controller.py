@@ -20,11 +20,11 @@ class FeedbackLinearizationController(Controller):
         q_dot = x[2:4]
         q = x[0:2]
         v = q_r_ddot + K_d * (q_r_dot - q_dot) + K_p * (q_r - q)
-        # v = q_r_ddot
+        #v = q_r_ddot
         M = self.model.M(x)
         C = self.model.C(x)
-        tau = M.dot(v) +C.dot(q_dot)
+        # tau = M.dot(v) +C.dot(q_dot)
         # print("BRUH")
         # print(M.shape, C.shape, v.shape, q_dot.shape)
-        # tau = M @ v + C @ q_dot
+        tau = M @ v + C @ q_dot
         return tau
