@@ -1,11 +1,11 @@
 import numpy as np
-from models.manipulator_model import ManiuplatorModel
+from models.manipulator_model import ManipulatorModel
 from .controller import Controller
 
 
 class FeedbackLinearizationController(Controller):
     def __init__(self, Tp):
-        self.model = ManiuplatorModel(Tp)
+        self.model = ManipulatorModel(Tp)
 
     def calculate_control(self, x, q_r, q_r_dot, q_r_ddot):
         """
@@ -19,8 +19,13 @@ class FeedbackLinearizationController(Controller):
         K_d = 20
         q_dot = x[2:4]
         q = x[0:2]
+<<<<<<< HEAD
         v = q_r_ddot + K_d * (q_r_dot - q_dot) + K_p * (q_r - q)
         #v = q_r_ddot
+=======
+        #v = q_r_ddot + self.K_d * (q_r_dot - q_dot) - self.K_p * (q_r - q)
+        v = q_r_ddot
+>>>>>>> project2
         M = self.model.M(x)
         C = self.model.C(x)
         # tau = M.dot(v) +C.dot(q_dot)

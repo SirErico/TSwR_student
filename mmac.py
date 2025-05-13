@@ -14,13 +14,14 @@ from utils.simulation import simulate
 """http://www.gipsa-lab.fr/~ioandore.landau/adaptivecontrol/Transparents/Courses/AdaptiveCourse5GRK.pdf"""
 
 Tp = 0.01
-end = 3.
+start = 0.
+end = 5.
 
 
 # TODO: Switch to MMAC as soon as you implement it
-#controller = MMAController(Tp)
-controller = FeedbackLinearizationController(Tp)
-controller = DummyController(Tp)
+controller = MMAController(Tp)
+# controller = FeedbackLinearizationController(Tp)
+# controller = DummyController(Tp)
 
 """
 Here you have some trajectory generators. You can use them to check your implementations.
@@ -29,7 +30,7 @@ Here you have some trajectory generators. You can use them to check your impleme
 traj_gen = Sinusoidal(np.array([0., 1.]), np.array([2., 2.]), np.array([0., 0.]))
 #traj_gen = Poly3(np.array([0., 0.]), np.array([pi/4, pi/6]), end)
 
-
+# Q_d desired trajectory
 Q, Q_d, u, T = simulate("PYBULLET", traj_gen, controller, Tp, end, multimodel=True)
 
 plt.subplot(221)
