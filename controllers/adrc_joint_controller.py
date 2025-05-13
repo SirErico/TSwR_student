@@ -1,12 +1,12 @@
 import numpy as np
 from observers.eso import ESO
 from .controller import Controller
-from models.manipulator_model import ManiuplatorModel
+from models.manipulator_model import ManipulatorModel
 
 
 class ADRCJointController(Controller):
     def __init__(self, b, kp, kd, p, q0, Tp):
-        self.model = ManiuplatorModel(Tp)
+        self.model = ManipulatorModel(Tp)
         self.Tp = Tp
         self.b = b
         self.kp = kp
