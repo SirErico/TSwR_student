@@ -45,14 +45,16 @@ class MMAController(Controller):
                 chosen_model_index = model_idx
 
         self.i = chosen_model_index
+        print("Model: ",self.i)
 
     def calculate_control(self, x, q_r, q_r_dot, q_r_ddot):
         self.choose_model(x)
         q = x[:2]
         q_dot = x[2:]
-        #v = q_r_ddot
-        v = q_r_ddot - self.K_d * (q_dot - q_r_dot) - self.K_p * (q - q_r)
+        v = q_r_ddot
+        #v = q_r_ddot - self.K_d * (q_dot - q_r_dot) - self.K_p * (q - q_r)
         M = self.models[self.i].M(x)
         C = self.models[self.i].C(x)
-        u = M.dot(v) + C.dot(q_dot)
+        # u = M.dot(v) + C.dot(q_dot)
+        u = M @ v + C @ q_dot
         return u

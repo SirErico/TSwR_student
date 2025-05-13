@@ -1,5 +1,12 @@
 models/__pycache__/manipulator_model.cpython-310.pyc
+<<<<<<< HEAD
 .venv/
 *.pyc
 __pycache__
 __pycache__/
+=======
+.vscode/
+.venv/
+__pycache__/
+*.pyc
+>>>>>>> project3
