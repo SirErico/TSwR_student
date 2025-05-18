@@ -1,11 +1,11 @@
 from copy import copy
 import numpy as np
-from models.manipulator_model import ManiuplatorModel
+from models.manipulator_model import ManipulatorModel
 
 
 class ESO:
     def __init__(self, A, B, W, L, state, Tp):
-        self.model = ManiuplatorModel(Tp)
+        self.model = ManipulatorModel(Tp)
         self.A = A
         self.B = B
         self.W = W

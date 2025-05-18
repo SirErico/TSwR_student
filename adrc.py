@@ -2,6 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from numpy import pi
 from scipy.integrate import odeint
+import math
 
 from controllers.adrc_controller import ADRController
 
@@ -15,29 +16,29 @@ end = 5
 
 # traj_gen = ConstantTorque(np.array([0., 1.0])[:, np.newaxis])
 traj_gen = Sinusoidal(np.array([0., 1.]), np.array([2., 2.]), np.array([0., 0.]))
-# traj_gen = Poly3(np.array([0., 0.]), np.array([pi/4, pi/6]), end)
+# traj_gen = Poly3(np.array([0., 0.]), np.array([math.pi/4, math.pi/6]), end)
 
-b_est_1 = 1
-b_est_2 = 1
-zeta = 1.0
-omega_n = 1.0
-kp_est_1 = omega_n ** 2
-kp_est_2 = omega_n ** 2
-kd_est_1 = 2 * zeta * omega_n
-kd_est_2 = 2 * zeta * omega_n
-p1 = 1
-p2 = 1
-
-# b_est_1 = 2
-# b_est_2 = 18
+# b_est_1 = 1
+# b_est_2 = 1
 # zeta = 1.0
 # omega_n = 1.0
 # kp_est_1 = omega_n ** 2
 # kp_est_2 = omega_n ** 2
 # kd_est_1 = 2 * zeta * omega_n
 # kd_est_2 = 2 * zeta * omega_n
-# p1 = 55
-# p2 = 55
+# p1 = 1
+# p2 = 1
+
+b_est_1 = 1
+b_est_2 = 10
+zeta = 15
+omega_n = 6
+kp_est_1 = omega_n ** 2
+kp_est_2 = omega_n ** 2
+kd_est_1 = 2 * zeta * omega_n
+kd_est_2 = 2 * zeta * omega_n
+p1 = 50
+p2 = 50
 
 
 
@@ -74,6 +75,7 @@ plt.plot(T, Q_d[:, 0], 'b')
 plt.subplot(222)
 plt.plot(T, Q[:, 1], 'r')
 plt.plot(T, Q_d[:, 1], 'b')
+plt.legend(['Q','Q_d'])
 plt.subplot(223)
 plt.plot(T, u[:, 0], 'r')
 plt.plot(T, u[:, 1], 'b')
