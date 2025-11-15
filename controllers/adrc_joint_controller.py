@@ -12,6 +12,7 @@ class ADRCJointController(Controller):
         self.kp = kp
         self.kd = kd
 
+
         # page 10 Decentralized ADRC 
         A = np.array([[0, 1, 0],
              [0, 0, 1],
@@ -33,6 +34,7 @@ class ADRCJointController(Controller):
     def calculate_control(self, idx, x, q_d, q_d_dot, q_d_ddot):
         ### TODO implement ADRC
         q, q_dot = x
+        
         self.eso.update(q, self.last_u)
         q_approx, q_approx_dot, f = self.eso.get_state()
         v = self.kp * (q_d - q) + self.kd * (q_d_dot - q_approx_dot) + q_d_ddot

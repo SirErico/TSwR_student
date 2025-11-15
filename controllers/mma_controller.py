@@ -29,6 +29,7 @@ class MMAController(Controller):
         self.x = np.zeros((4, 1))
 
     def choose_model(self, x):
+        M_inv = np.linalg.inv(self.models.M(x))
         err = []
         for model in self.models:
             M = model.M(x)

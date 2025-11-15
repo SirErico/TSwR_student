@@ -11,21 +11,21 @@ Tp = 0.001
 end = 5
 
 # traj_gen = ConstantTorque(np.array([0., 1.0])[:, np.newaxis])
-traj_gen = Sinusoidal(np.array([0., 1.]), np.array([2., 2.]), np.array([0., 0.]))
-# traj_gen = Poly3(np.array([0., 0.]), np.array([math.pi/4, math.pi/6]), end)
+# traj_gen = Sinusoidal(np.array([0., 1.]), np.array([2., 2.]), np.array([0., 0.]))
+traj_gen = Poly3(np.array([0., 0.]), np.array([math.pi/4, math.pi/6]), end)
 
 # i dont like those graphs :c
 # probably need to change the parameters
 b_est_1 = 1
-b_est_2 = 10
-zeta = 5 # damping ratio
-omega_n = 6 # natural frequency
+b_est_2 = 1 # equation 53
+zeta = 0.5 # damping ratio
+omega_n = 10 # natural frequency
 kp_est_1 = omega_n ** 2
 kp_est_2 = omega_n ** 2
 kd_est_1 = 2 * zeta * omega_n
 kd_est_2 = 2 * zeta * omega_n
-p1 = 50
-p2 = 50
+p1 = 20
+p2 = 20
 
 q0, qdot0, _ = traj_gen.generate(0.)
 q1_0 = np.array([q0[0], qdot0[0]])
@@ -54,8 +54,8 @@ plt.plot(T, Q[:, 1], 'r')
 plt.subplot(224)
 plt.plot(T, eso[:, 3])
 plt.plot(T, Q[:, 3], 'r')
-plt.show()
 
+plt.figure()
 plt.subplot(221)
 plt.plot(T, Q[:, 0], 'r')
 plt.plot(T, Q_d[:, 0], 'b')
